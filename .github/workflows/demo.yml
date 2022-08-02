@@ -21,5 +21,7 @@ jobs:
           echo "{"projectId":"prj_n8NlnvfvuKOcPiW9smzKV4N62V8j","orgId":"624aPYDyJqHEL1OQp0hOUOQF"}" > project.json
       - name: deploy project....
         run: yarn deploy
+      - name: pull req vercel
+        run: vercel pull
       - name: Finishing all the steps
         run: echo "Finishing all the task"
