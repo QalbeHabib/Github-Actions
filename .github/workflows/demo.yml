@@ -19,8 +19,6 @@ jobs:
           cd .vercel
           touch project.json
           echo "{"projectId":"prj_n8NlnvfvuKOcPiW9smzKV4N62V8j","orgId":"624aPYDyJqHEL1OQp0hOUOQF"}" > project.json
-      - name: pull req vercel
-        run: vercel pull
       - name: deploy project....
         run: yarn deploy
       - name: Finishing all the steps
