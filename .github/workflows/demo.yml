@@ -1,0 +1,25 @@
+name: Testing Git ub actions
+on: [push]
+jobs:
+  build-Project:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.16.0
+      - name: Install dependencies
+        run: yarn
+      - name: Creating Build
+        run: yarn build
+      - name: creating vercel env
+        run: |
+          cd build 
+          mkdir .vercel
+          cd .vercel
+          touch project.json
+          echo "{"projectId":"prj_n8NlnvfvuKOcPiW9smzKV4N62V8j","orgId":"624aPYDyJqHEL1OQp0hOUOQF"}" > project.json
+      - name: deploy project....
+        run: yarn deploy
+      - name: Finishing all the steps
+        run: echo "Finishing all the task"
